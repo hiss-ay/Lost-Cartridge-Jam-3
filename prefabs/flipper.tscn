@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/flipper.gd" type="Script" id=1]
-[ext_resource path="res://sprites/flepper.png" type="Texture" id=2]
+[ext_resource path="res://sprites/plyli_my_po_moryu_veter_machtu_rval3.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.5
 
 [node name="Flipper" type="Node2D"]
+rotation = -0.10472
 script = ExtResource( 1 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -16,9 +17,9 @@ physics_material_override = SubResource( 1 )
 continuous_cd = 2
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
-position = Vector2( 11, 13 )
+position = Vector2( 7.95745, 8.86133 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -0.30002, -0.199993 )
-polygon = PoolVector2Array( 3.30002, -3.80001, 9.30002, -3.80001, 18.3, 8.19999, 24.3, 16.2, 27.3, 23.2, 27.3, 28.2, 25.3, 30.2, 18.3, 30.2, 14.3, 28.2, 9.30002, 23.2, -4.69998, 9.19999, -4.69998, 4.19999 )
+position = Vector2( -3.34257, -4.33866 )
+polygon = PoolVector2Array( 5.3681, 2.31716, 11.4398, 1.94981, 16.8843, 7.54959, 20.4442, 11.9458, 24.1087, 15.3475, 25.6797, 19.5346, 23.377, 22.3091, 17.4099, 21.6819, 11.5473, 20.0603, 6.88827, 16.554, -1.64432, 11.6352, -1.33073, 8.65164, 0.9719, 5.87713 )
