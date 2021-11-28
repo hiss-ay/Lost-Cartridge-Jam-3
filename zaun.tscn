@@ -10,3 +10,12 @@ position = Vector2( 95, 84 )
 
 [node name="Flipper" parent="." instance=ExtResource( 1 )]
 position = Vector2( 68, 129 )
+snap_time = 0.05
+snap_angle = -50
+
+[node name="Flipper2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 147, 128 )
+scale = Vector2( -1, 1 )
+keycode = "ui_right"
+snap_time = 0.05
+snap_angle = -50

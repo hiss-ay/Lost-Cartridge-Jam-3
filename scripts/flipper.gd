@@ -1,22 +1,22 @@
 extends Node2D
 
-export var is_right_flipper = false
-export var angle_y = -50
-export var rotate_speed = 0.2
+export var keycode = "ui_left"
+export var snap_time = 0.25
+export var snap_angle = 50
 
-onready var tween = get_node("Tween")
-
-var button_pressed = false
+onready var intermediate_time = 0.0
+onready var rb = $RigidBody2D
 
 func _physics_process(delta):
-	if is_right_flipper:
-		button_pressed = Input.is_action_pressed("ui_right")
+	if Input.is_action_pressed(keycode):
+		if intermediate_time < snap_time:
+			intermediate_time += delta
+			if intermediate_time > snap_time:
+				intermediate_time = snap_time
+			rb.set_rotation_degrees((intermediate_time / snap_time) * snap_angle)
 	else:
-		button_pressed = Input.is_action_pressed("ui_left")
-		
-	if button_pressed:
-		var r = Vector2(0, rad2deg(234))
-		tween.interpolate_property(self, "rotation_degrees", angle_y, 0, rotate_speed, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
-		tween.start()
-		
-	pass 
+		if intermediate_time > 0:
+			intermediate_time -= delta
+			if intermediate_time < 0:
+				intermediate_time = 0
+			rb.set_rotation_degrees((intermediate_time / snap_time) * snap_angle)
